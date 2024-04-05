@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi página webbbb</title>
+</head>
+<body>
+    <h1>Hola, mundo!</h1>
+    <p>¡Bienvenido a mi página web!</p>
+    
+    <!-- Agrega un input para mostrar los logs de la consola -->
+    <input type="text" id="consoleInput" style="width: 100%; height: 200px;" readonly>
+    
+    <script>
+        // Captura los mensajes de la consola y los muestra en el input
+        (function() {
+            var oldConsoleLog = console.log;
+            console.log = function(message) {
+                oldConsoleLog.apply(console, arguments);
+                var consoleInput = document.getElementById('consoleInput');
+                if (consoleInput) {
+                    consoleInput.value += message + '\n';
+                }
+            };
+        })();
+    </script>
+</body>
+</html>
